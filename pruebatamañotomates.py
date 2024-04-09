@@ -42,9 +42,9 @@ results = model(image_path)  # Devuelve una lista de objetos Results
 dist_obj = distance_calculation.DistanceCalculation()
 dist_obj.set_args(names="Tomate", view_img=True)
 
-distancia = 16 # cm
+distancia = 20 # cm
 
-FOV = 67 # grados
+FOV = 60 # grados
 
 ancho_foto = 1536
 
@@ -66,7 +66,7 @@ for result in results:
         radius = side_length / 2   
         
         print(radius)
-        angulo = calcular_distancia_angular(FOV, radius*2, ancho_foto)
+        angulo = calcular_distancia_angular(FOV, side_length, ancho_foto)
         print(angulo)
         tam_real = calcular_tamaño_real(angulo, distancia)
         putText(result.orig_img, f"{tam_real:.1f}cm", (x1, y1 - 10))
